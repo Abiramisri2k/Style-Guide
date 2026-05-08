@@ -1,89 +1,89 @@
-/**
- * ENTERPRISE GRID SYSTEM v1.0.0
- * Inspired by Kissflow, Atlassian, Carbon, and Material Design.
- * 
- * This grid system is built for scalability, consistency, and developer experience.
- * It uses a mobile-first 12-column architecture with responsive tokens.
- */
-
 :root {
-  /* 1. Breakpoint Tokens
+    /* 1. Breakpoint Tokens
      Modern breakpoint naming for responsive design.
   */
-  --breakpoint-xs: 320px;   /* Mobile Portrait */
-  --breakpoint-sm: 640px;   /* Mobile Landscape / Small Tablet */
-  --breakpoint-md: 768px;   /* Tablet */
-  --breakpoint-lg: 1024px;  /* Laptop / Desktop */
-  --breakpoint-xl: 1280px;  /* Wide Screen */
-  --breakpoint-2xl: 1536px; /* Ultra Wide */
+    --breakpoint-xs: 320px;
+    /* Mobile Portrait */
+    --breakpoint-sm: 640px;
+    /* Mobile Landscape / Small Tablet */
+    --breakpoint-md: 768px;
+    /* Tablet */
+    --breakpoint-lg: 1024px;
+    /* Laptop / Desktop */
+    --breakpoint-xl: 1280px;
+    /* Wide Screen */
+    --breakpoint-2xl: 1536px;
+    /* Ultra Wide */
 
-  /* 2. Container Width Tokens
+    /* 2. Container Width Tokens
      Maximum widths for page containers at different breakpoints.
   */
-  --container-sm: 640px;
-  --container-md: 768px;
-  --container-lg: 1024px;
-  --container-xl: 1280px;
-  --container-2xl: 1440px;
+    --container-sm: 640px;
+    --container-md: 768px;
+    --container-lg: 1024px;
+    --container-xl: 1280px;
+    --container-2xl: 1440px;
 
-  /* 3. Grid Column System */
-  --grid-columns: 12;
+    /* 3. Grid Column System */
+    --grid-columns: 12;
 
-  /* 4. Gutter Tokens (Space between columns) */
-  --grid-gutter-xs: 16px;
-  --grid-gutter-md: 24px;
-  --grid-gutter-lg: 32px;
+    /* 4. Gutter Tokens (Space between columns) */
+    --grid-gutter-xs: 16px;
+    --grid-gutter-md: 24px;
+    --grid-gutter-lg: 32px;
 
-  /* 5. Margin Tokens (Page side padding) */
-  --grid-margin-xs: 16px;
-  --grid-margin-md: 32px;
-  --grid-margin-lg: 48px;
-  --grid-margin-xl: 64px;
+    /* 5. Margin Tokens (Page side padding) */
+    --grid-margin-xs: 16px;
+    --grid-margin-md: 32px;
+    --grid-margin-lg: 48px;
+    --grid-margin-xl: 64px;
 
-  /* 6. Layout Constraints (Semantic Tokens)
+    /* 6. Layout Constraints (Semantic Tokens)
      These tokens adapt based on the current viewport.
   */
-  --grid-gutter: var(--grid-gutter-xs);
-  --grid-margin: var(--grid-margin-xs);
-  --container-max-width: 100%;
+    --grid-gutter: var(--grid-gutter-xs);
+    --grid-margin: var(--grid-margin-xs);
+    --container-max-width: 100%;
 
-  /* 7. Fluid Grid Support (Optional)
+    /* 7. Fluid Grid Support (Optional)
      Using clamp() for smooth scaling between mobile and desktop.
      Formula: clamp(min, preferred, max)
   */
-  --fluid-gutter: clamp(1rem, 0.5rem + 1.5vw, 2rem);  /* 16px to 32px */
-  --fluid-margin: clamp(1rem, -0.5rem + 6vw, 4rem);   /* 16px to 64px */
+    --fluid-gutter: clamp(1rem, 0.5rem + 1.5vw, 2rem);
+    /* 16px to 32px */
+    --fluid-margin: clamp(1rem, -0.5rem + 6vw, 4rem);
+    /* 16px to 64px */
 }
 
 /* Responsive Token Updates */
 @media (min-width: 768px) {
-  :root {
-    --grid-gutter: var(--grid-gutter-md);
-    --grid-margin: var(--grid-margin-md);
-    --container-max-width: var(--container-md);
-  }
+    :root {
+        --grid-gutter: var(--grid-gutter-md);
+        --grid-margin: var(--grid-margin-md);
+        --container-max-width: var(--container-md);
+    }
 }
 
 @media (min-width: 1024px) {
-  :root {
-    --grid-gutter: var(--grid-gutter-lg);
-    --grid-margin: var(--grid-margin-md);
-    --container-max-width: var(--container-lg);
-  }
+    :root {
+        --grid-gutter: var(--grid-gutter-lg);
+        --grid-margin: var(--grid-margin-md);
+        --container-max-width: var(--container-lg);
+    }
 }
 
 @media (min-width: 1280px) {
-  :root {
-    --grid-margin: var(--grid-margin-lg);
-    --container-max-width: var(--container-xl);
-  }
+    :root {
+        --grid-margin: var(--grid-margin-lg);
+        --container-max-width: var(--container-xl);
+    }
 }
 
 @media (min-width: 1536px) {
-  :root {
-    --grid-margin: var(--grid-margin-xl);
-    --container-max-width: var(--container-2xl);
-  }
+    :root {
+        --grid-margin: var(--grid-margin-xl);
+        --container-max-width: var(--container-2xl);
+    }
 }
 
 /* -------------------------------------------------------------------------- */
@@ -95,12 +95,12 @@
  * Centralized page wrapper with responsive padding and max-width.
  */
 .container {
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: var(--grid-margin);
-  padding-right: var(--grid-margin);
-  max-width: var(--container-max-width);
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--grid-margin);
+    padding-right: var(--grid-margin);
+    max-width: var(--container-max-width);
 }
 
 /**
@@ -108,42 +108,98 @@
  * The main 12-column grid system.
  */
 .grid {
-  display: grid;
-  grid-template-columns: repeat(var(--grid-columns), 1fr);
-  column-gap: var(--grid-gutter);
-  row-gap: var(--grid-gutter);
+    display: grid;
+    grid-template-columns: repeat(var(--grid-columns), 1fr);
+    column-gap: var(--grid-gutter);
+    row-gap: var(--grid-gutter);
 }
 
 /* Responsive Column Spans */
-.col-span-full { grid-column: span 12 / span 12; }
+.col-span-full {
+    grid-column: span 12 / span 12;
+}
 
 /* Default mobile spans (12 columns) */
-.col-1  { grid-column: span 1 / span 1; }
-.col-2  { grid-column: span 2 / span 2; }
-.col-3  { grid-column: span 3 / span 3; }
-.col-4  { grid-column: span 4 / span 4; }
-.col-6  { grid-column: span 6 / span 6; }
-.col-12 { grid-column: span 12 / span 12; }
+.col-1 {
+    grid-column: span 1 / span 1;
+}
+
+.col-2 {
+    grid-column: span 2 / span 2;
+}
+
+.col-3 {
+    grid-column: span 3 / span 3;
+}
+
+.col-4 {
+    grid-column: span 4 / span 4;
+}
+
+.col-6 {
+    grid-column: span 6 / span 6;
+}
+
+.col-12 {
+    grid-column: span 12 / span 12;
+}
 
 /* Tablet Spans (md) */
 @media (min-width: 768px) {
-  .md\:col-1 { grid-column: span 1 / span 1; }
-  .md\:col-2 { grid-column: span 2 / span 2; }
-  .md\:col-3 { grid-column: span 3 / span 3; }
-  .md\:col-4 { grid-column: span 4 / span 4; }
-  .md\:col-6 { grid-column: span 6 / span 6; }
-  .md\:col-12 { grid-column: span 12 / span 12; }
+    .md\:col-1 {
+        grid-column: span 1 / span 1;
+    }
+
+    .md\:col-2 {
+        grid-column: span 2 / span 2;
+    }
+
+    .md\:col-3 {
+        grid-column: span 3 / span 3;
+    }
+
+    .md\:col-4 {
+        grid-column: span 4 / span 4;
+    }
+
+    .md\:col-6 {
+        grid-column: span 6 / span 6;
+    }
+
+    .md\:col-12 {
+        grid-column: span 12 / span 12;
+    }
 }
 
 /* Desktop Spans (lg) */
 @media (min-width: 1024px) {
-  .lg\:col-1 { grid-column: span 1 / span 1; }
-  .lg\:col-2 { grid-column: span 2 / span 2; }
-  .lg\:col-3 { grid-column: span 3 / span 3; }
-  .lg\:col-4 { grid-column: span 4 / span 4; }
-  .lg\:col-6 { grid-column: span 6 / span 6; }
-  .lg\:col-8 { grid-column: span 8 / span 8; }
-  .lg\:col-12 { grid-column: span 12 / span 12; }
+    .lg\:col-1 {
+        grid-column: span 1 / span 1;
+    }
+
+    .lg\:col-2 {
+        grid-column: span 2 / span 2;
+    }
+
+    .lg\:col-3 {
+        grid-column: span 3 / span 3;
+    }
+
+    .lg\:col-4 {
+        grid-column: span 4 / span 4;
+    }
+
+    .lg\:col-6 {
+        grid-column: span 6 / span 6;
+    }
+
+    .lg\:col-8 {
+        grid-column: span 8 / span 8;
+    }
+
+    .lg\:col-12 {
+        grid-column: span 12 / span 12;
+    }
 }
 
 /* -------------------------------------------------------------------------- */
@@ -166,13 +222,15 @@
 
 /* Example: Fluid Dashboard Layout using CSS Grid */
 .dashboard-layout {
-  display: grid;
-  grid-template-columns: 280px 1fr; /* Fixed sidebar + fluid content */
-  min-height: 100vh;
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    /* Fixed sidebar + fluid content */
+    min-height: 100vh;
 }
 
 @media (max-width: 1023px) {
-  .dashboard-layout {
-    grid-template-columns: 1fr; /* Stack on mobile/tablet */
-  }
+    .dashboard-layout {
+        grid-template-columns: 1fr;
+        /* Stack on mobile/tablet */
+    }
 }
