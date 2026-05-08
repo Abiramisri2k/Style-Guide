@@ -1,0 +1,163 @@
+/**
+ * ENTERPRISE BREAKPOINT SYSTEM v1.0.0
+ * Inspired by Kissflow, Atlassian, Material Design, and Tailwind CSS.
+ * 
+ * This system provides a scalable architecture for responsive design,
+ * mapping device categories to semantic tokens and layout constraints.
+ */
+
+:root {
+  /* -------------------------------------------------------------------------- */
+  /* 1. BREAKPOINT TOKENS                                                       */
+  /* -------------------------------------------------------------------------- */
+  --breakpoint-xs: 320px;   /* Mobile Portrait */
+  --breakpoint-sm: 480px;   /* Mobile Landscape / Small Tablet */
+  --breakpoint-md: 768px;   /* Tablet */
+  --breakpoint-lg: 1024px;  /* Laptop / Desktop */
+  --breakpoint-xl: 1280px;  /* Wide Screen / Large Desktop */
+  --breakpoint-2xl: 1440px; /* Ultra Wide / Enterprise Dashboard */
+
+  /* -------------------------------------------------------------------------- */
+  /* 2. DEVICE MAPPING (Reference)                                              */
+  /* -------------------------------------------------------------------------- */
+  /* 
+     xs: Mobile devices in portrait mode.
+     sm: Large mobile devices in landscape or small tablets.
+     md: Medium tablets (iPad Mini, iPad Air).
+     lg: Standard laptops and smaller desktops.
+     xl: Full HD desktops and large laptops.
+     2xl: Large 4K monitors and high-resolution enterprise displays.
+  */
+
+  /* -------------------------------------------------------------------------- */
+  /* 3. CONTAINER WIDTH TOKENS                                                  */
+  /* -------------------------------------------------------------------------- */
+  --container-sm: 448px;
+  --container-md: 720px;
+  --container-lg: 960px;
+  --container-xl: 1200px;
+  --container-2xl: 1360px;
+
+  /* -------------------------------------------------------------------------- */
+  /* 4. RESPONSIVE LAYOUT RULES (Semantic Defaults)                             */
+  /* -------------------------------------------------------------------------- */
+  --grid-columns: 4;          /* Default to mobile (4 columns) */
+  --grid-gutter: 16px;        /* Default gutter */
+  --grid-margin: 16px;        /* Default side margin */
+  --container-max-width: 100%;
+
+  /* -------------------------------------------------------------------------- */
+  /* 5. RECOMMENDED SPACING BEHAVIOR (Step-based)                               */
+  /* -------------------------------------------------------------------------- */
+  --spacing-multiplier: 1;    /* Global spacing scale multiplier */
+
+  /* -------------------------------------------------------------------------- */
+  /* 6. RESPONSIVE TYPOGRAPHY SCALING (Foundation)                              */
+  /* -------------------------------------------------------------------------- */
+  --font-scale-base: 1rem;    /* 16px */
+  --font-scale-ratio: 1.2;    /* Minor Third for mobile */
+
+  /* -------------------------------------------------------------------------- */
+  /* 7. FLUID RESPONSIVE RECOMMENDATIONS (using clamp)                         */
+  /* -------------------------------------------------------------------------- */
+  /* Fluid Gutter: 16px -> 32px between 320px and 1440px */
+  --fluid-gutter: clamp(1rem, 0.714rem + 1.428vw, 2rem);
+  
+  /* Fluid Margin: 16px -> 64px between 320px and 1440px */
+  --fluid-margin: clamp(1rem, -0.142rem + 5.714vw, 4rem);
+
+  /* Fluid Type: 16px -> 20px for body text */
+  --fluid-font-body: clamp(1rem, 0.928rem + 0.357vw, 1.25rem);
+}
+
+/* -------------------------------------------------------------------------- */
+/* 8. RESPONSIVE LOGIC (Mobile-First Strategy)                                */
+/* -------------------------------------------------------------------------- */
+
+/* Small Devices (sm) */
+@media (min-width: 480px) {
+  :root {
+    --grid-columns: 8;
+    --container-max-width: var(--container-sm);
+  }
+}
+
+/* Tablets (md) */
+@media (min-width: 768px) {
+  :root {
+    --grid-columns: 8;
+    --grid-gutter: 24px;
+    --grid-margin: 32px;
+    --container-max-width: var(--container-md);
+    --font-scale-ratio: 1.25; /* Major Third for tablet */
+  }
+}
+
+/* Laptops (lg) */
+@media (min-width: 1024px) {
+  :root {
+    --grid-columns: 12;
+    --grid-gutter: 32px;
+    --container-max-width: var(--container-lg);
+  }
+}
+
+/* Desktops (xl) */
+@media (min-width: 1280px) {
+  :root {
+    --grid-margin: 48px;
+    --container-max-width: var(--container-xl);
+    --font-scale-ratio: 1.333; /* Perfect Fourth for desktop */
+  }
+}
+
+/* Wide Screens (2xl) */
+@media (min-width: 1440px) {
+  :root {
+    --grid-margin: 64px;
+    --container-max-width: var(--container-2xl);
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* SAAS APPLICATION RESPONSIVE STANDARDS                                      */
+/* -------------------------------------------------------------------------- */
+
+/**
+ * DASHBOARD LAYOUT RECOMMENDATIONS:
+ * 
+ * 1. Sidebar Behavior:
+ *    - < md: Hidden (Hamburger menu / Overlay)
+ *    - >= md: Mini-sidebar (Collapsed)
+ *    - >= lg: Permanent sidebar (240px - 280px)
+ * 
+ * 2. Grid Column Behavior:
+ *    - Mobile (xs, sm): 4 columns. Cards stack 1-up.
+ *    - Tablet (md): 8 columns. Cards stack 2-up.
+ *    - Desktop (lg+): 12 columns. Cards 3-up or 4-up.
+ * 
+ * 3. Density Management:
+ *    - Use fluid gutters for data-rich tables to maintain whitespace on large screens
+ *      while ensuring information density on smaller viewports.
+ * 
+ * 4. Content Wrapping:
+ *    - Marketing pages: Use centered .container.
+ *    - App Dashboards: Use full-width layouts with --grid-margin on sides.
+ */
+
+/* Example: Responsive Container Utility */
+.layout-container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--grid-margin);
+  padding-right: var(--grid-margin);
+  max-width: var(--container-max-width);
+}
+
+/* Example: Responsive Grid Utility */
+.layout-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns), 1fr);
+  gap: var(--grid-gutter);
+}
