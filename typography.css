@@ -1,0 +1,139 @@
+:root {
+  /* 
+     ==========================================================================
+     TYPOGRAPHY TOKEN ARCHITECTURE (Enterprise Grade)
+     ==========================================================================
+  */
+
+  /* 
+     --------------------------------------------------------------------------
+     1. PRIMITIVE TOKENS (Foundational Values)
+     --------------------------------------------------------------------------
+  */
+
+  /* Font Families */
+  --font-family-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-family-mono: 'Margin Mono', 'Fira Code', monospace;
+
+  /* Font Weights */
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+
+  /* Font Size Scale (Modular) */
+  --text-64: 4rem;
+  --text-56: 3.5rem;
+  --text-48: 3rem;
+  --text-40: 2.5rem;
+  --text-32: 2rem;
+  --text-24: 1.5rem;
+  --text-20: 1.25rem;
+  --text-18: 1.125rem;
+  --text-16: 1rem;
+  --text-14: 0.875rem;
+  --text-12: 0.75rem;
+  --text-10: 0.625rem;
+
+  /* Line Heights */
+  --lh-tight: 1.2;    /* 120% for headings */
+  --lh-normal: 1.5;   /* 150% for body */
+
+  /* Letter Spacing */
+  --ls-heading: -0.5px;
+  --ls-body: 0;
+
+  /* 
+     --------------------------------------------------------------------------
+     2. SEMANTIC TOKENS (Role-based Mapping)
+     --------------------------------------------------------------------------
+  */
+
+  /* Display */
+  --display-xl-size: var(--text-64);
+  --display-xl-weight: var(--weight-semibold);
+  --display-xl-lh: var(--lh-tight);
+  --display-xl-ls: var(--ls-heading);
+
+  --display-lg-size: var(--text-56);
+  --display-lg-weight: var(--weight-semibold);
+  --display-lg-lh: var(--lh-tight);
+  --display-lg-ls: var(--ls-heading);
+
+  /* Headings */
+  --h1-size: var(--text-48);
+  --h1-weight: var(--weight-semibold);
+  --h1-lh: var(--lh-tight);
+  --h1-ls: var(--ls-heading);
+
+  --h2-size: var(--text-40);
+  --h2-weight: var(--weight-semibold);
+  --h2-lh: var(--lh-tight);
+  --h2-ls: var(--ls-heading);
+
+  --h3-size: var(--text-32);
+  --h3-weight: var(--weight-semibold);
+  --h3-lh: var(--lh-tight);
+  --h3-ls: var(--ls-heading);
+
+  --h4-size: var(--text-24);
+  --h4-weight: var(--weight-semibold);
+  --h4-lh: var(--lh-tight);
+  --h4-ls: var(--ls-heading);
+
+  --h5-size: var(--text-20);
+  --h5-weight: var(--weight-semibold);
+  --h5-lh: var(--lh-tight);
+  --h5-ls: var(--ls-heading);
+
+  --h6-size: var(--text-18);
+  --h6-weight: var(--weight-semibold);
+  --h6-lh: var(--lh-tight);
+  --h6-ls: var(--ls-heading);
+
+  /* Body */
+  --body-lg-size: var(--text-18);
+  --body-lg-weight: var(--weight-regular);
+  --body-lg-lh: var(--lh-normal);
+  --body-lg-ls: var(--ls-body);
+
+  --body-md-size: var(--text-16);
+  --body-md-weight: var(--weight-regular);
+  --body-md-lh: var(--lh-normal);
+  --body-md-ls: var(--ls-body);
+
+  --body-sm-size: var(--text-14);
+  --body-sm-weight: var(--weight-regular);
+  --body-sm-lh: var(--lh-normal);
+  --body-sm-ls: var(--ls-body);
+
+  /* Support */
+  --subtitle-size: var(--text-18);
+  --subtitle-weight: var(--weight-medium);
+  --subtitle-lh: var(--lh-normal);
+  --subtitle-ls: var(--ls-body);
+
+  --caption-size: var(--text-12);
+  --caption-weight: var(--weight-regular);
+  --caption-lh: var(--lh-normal);
+  --caption-ls: var(--ls-body);
+
+  --label-size: var(--text-12);
+  --label-weight: var(--weight-medium);
+  --label-lh: var(--lh-normal);
+  --label-ls: var(--ls-body);
+
+  /* Mono */
+  --mono-size: var(--text-10);
+  --mono-weight: var(--weight-regular);
+  --mono-lh: var(--lh-normal);
+  --mono-ls: var(--ls-body);
+
+  /* 
+     --------------------------------------------------------------------------
+     3. OPTIONAL SHORTHAND TOKENS (Component-ready)
+     --------------------------------------------------------------------------
+  */
+  --font-h1: var(--h1-weight) var(--h1-size)/var(--h1-lh) var(--font-family-sans);
+  --font-body-md: var(--body-md-weight) var(--body-md-size)/var(--body-md-lh) var(--font-family-sans);
+  --font-mono: var(--mono-weight) var(--mono-size)/var(--mono-lh) var(--font-family-mono);
+}
